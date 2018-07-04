@@ -24,7 +24,6 @@ Node.js (express, mongoose, etc.)
 [20180704WED]
 1. install git bash: connect local repository to remote / first commit
 2. create README.md
-3. statics 사용할 때 parameter?
-=> URL parameter / query string
+3. <form>의 action -> routes\index.js에서 찾아서 실행 ?(query) / =(param) req.query.이름
 4. statics 사용할 때 then(), catch()?
 => statics에서 return된 값이 then으로

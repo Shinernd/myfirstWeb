@@ -15,8 +15,9 @@ router.get('/all', (req, res)=>{
         .catch(err=>res.status(500).send(err));
 });
 
-router.get('/search/:school', (req, res)=>{
-    School.findOneByName(req.params.school)
+router.get('/search', (req, res)=>{
+    console.log(req.query.school)
+    School.findOneByName(req.query.school)
         .then((school)=>{
             if(!school) return res.status(404).send({err: 'School not found'});
             res.send('find successfully: ${school}');
@@ -31,14 +32,3 @@ router.post('/', (req, res)=>{
 });
 
 module.exports = router;
-
-/*
-router.get('/search', function(req, res){
-    const search_word = req.query.school;
-    const serachCondition = {$regex: search_word}; //?
-
-    const page = req.query.page;
-    if(page==null){page = 1};
-    const skipSize
-})
-*/
