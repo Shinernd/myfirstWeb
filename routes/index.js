@@ -15,8 +15,8 @@ router.get('/all', (req, res)=>{
         .catch(err=>res.status(500).send(err));
 });
 
-router.get('/name/:name', (req, res)=>{
-    School.findOneByName(req.params.name) //req.params.name: params from what?
+router.get('/search/:school', (req, res)=>{
+    School.findOneByName(req.params.school)
         .then((school)=>{
             if(!school) return res.status(404).send({err: 'School not found'});
             res.send('find successfully: ${school}');

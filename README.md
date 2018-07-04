@@ -21,7 +21,10 @@ Node.js (express, mongoose, etc.)
 2. routes\index.js> 1. statics 사용
 3. app.js> app.use('/', index); : '/'에 대한 요청을 routes\index.js로 route
 
-[20180704TUE]
+[20180704WED]
 1. install git bash: connect local repository to remote / first commit
 2. create README.md
-3. statics 사용할 때 prameter?
+3. statics 사용할 때 parameter?
+=> URL parameter / query string
+4. statics 사용할 때 then(), catch()?
+=> statics에서 return된 값이 then으로

@@ -6,11 +6,13 @@
 </head>
 <body>
     <div>
-        <form action="" method='get'>
+        <form action="" method='GET'>
             <!--<h1><a href = "localhost:3000">SNOCLE</a></h1>-->
             <label for="Search-school">Find your School:</label>
-            <input id="Search-school" type="text" name="school">
-            <input type="submit" value="Search">
+            <form class="form-inline" role="search" method="GET" action="/search">
+                <input id="searchSchool" name="school" type="search" placeholder="Search" aria-label="School">
+                <input type="submit" value="Search">
+            </form>
             <input type="button" value="All">
         </form>
     </div>
