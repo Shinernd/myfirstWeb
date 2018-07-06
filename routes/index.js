@@ -16,18 +16,18 @@ router.get('/all', (req, res)=>{
 });
 
 router.get('/search', (req, res)=>{
-    console.log(req.query.school)
-    School.findOneByName(req.query.school)
-        .then((school)=>{
-            if(!school) return res.status(404).send({err: 'School not found'});
-            res.send('find successfully: ${school}');
-        })
-        .catch(err=>res.status(500).send(err));
+    const searchword = req.query.school
+    School.findOneByName(searchword).then((school)=>{
+        if(!school){
+            res.render('searcherr', {name: searchword, campus: ""});
+        }else{
+            res.send('find successfully: ${school}'); //list -> select?
+    }}).catch(err=>res.status(500).send(err));
 });
 
-router.post('/', (req, res)=>{
+router.post('/create', (req, res)=>{
     School.create(req.body)
-        .then(school=>res.send(school))
+        .then(newschool=>res.send(newschool))
         .catch(err=>res.status(500).send(err));
 });
 

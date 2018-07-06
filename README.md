@@ -2,7 +2,8 @@
 Node.js (express, mongoose, etc.)
 
 [20180628THU]
-1. req, res를 사용하여 통신하는 것을 Ajax방식이라고 함
+1. req, res를 사용하여 통신하는 것을 Ajax방식이라고 함 (X아님X)
+=> 페이지 전체 reload없이 해당 부분만을 render하는 방식
 2. const 이름 = require('모듈'); / module.export = 모듈
 3. routing: get, post 등 한 URL에 대해 방식 라우팅을 다르게 할 수 있음
 4. app.get('/', callback); 또는 app.route('/').get(callback).post(callback);
@@ -24,6 +25,13 @@ Node.js (express, mongoose, etc.)
 [20180704WED]
 1. install git bash: connect local repository to remote / first commit
 2. create README.md
-3. <form>의 action -> routes\index.js에서 찾아서 실행 ?(query) / =(param) req.query.이름
+3. form 태그의 action -> routes\index.js에서 찾아서 실행 ?(query) / =(param) req.query.이름
 4. statics 사용할 때 then(), catch()?
 => statics에서 return된 값이 then으로
+
+[20180705THU]
+1. 검색 결과가 없으면 render할 searcherr.ejs view페이지 생성
+2. post방식을 통해 DB에 데이터 추가... 하고 싶다.
+    1) schoolSchema.statics.create에서 new this가 안됨
+    2) new schoolSchema도 안됨
+=> not constructor

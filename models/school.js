@@ -6,14 +6,6 @@ const schoolSchema = new mongoose.Schema({
     campus: String
 });
 
-// [CREATE NEW SCHOOL DOCUMENT]
-schoolSchema.statics.create = function(payload){
-    // this === Model
-    const school = new this(payload);
-    // [RETURN PROMISE]
-    return school.save();
-}
-
 // [FIND ALL]
 schoolSchema.statics.findAll = function(){
     // [RETURN PROMISE]
@@ -25,4 +17,14 @@ schoolSchema.statics.findOneByName = function(name){
     return this.findOne({name});
 }
 
-module.exports = mongoose.model('school', schoolSchema);
+const school = mongoose.model('school', schoolSchema);
+
+// [CREATE NEW SCHOOL DOCUMENT]
+schoolSchema.statics.create = (payload)=>{
+    // this === Model
+    const newschool = new school(payload);
+    // [RETURN PROMISE]
+    return newschool.save();
+}
+
+module.exports = school;
