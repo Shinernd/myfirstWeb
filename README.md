@@ -35,3 +35,16 @@ Node.js (express, mongoose, etc.)
     1) schoolSchema.statics.create에서 new this가 안됨
     2) new schoolSchema도 안됨
 => not constructor
+
+[20180706FRI]
+1. DB에 데이터 추가
+    3) mongoose.model이 생성자를 생성
+    -> mongoose.model을 new mongoose.schema 바로 다음으로
+    -> schoolSchema.statics.findOneByName이 함수의 기능을 잃음
+    4) schoolSchema.statics.create 전에 mongoose.model
+    -> 데이터 추가 안됨
+    -> 인줄 알았으나 view페이지 수정 후 작동
+    +) 맘에 안듦
+2. findOneByName은 해당 name을 가진 데이터를 하나만 찾을 수 있음
+    -> findOneByName에 findOne 대신 find 사용, 이름을 findByName으로 변경
+    -> 없는 데이터 검색 시 searcherr render 실패

@@ -16,16 +16,19 @@ router.get('/all', (req, res)=>{
 });
 
 router.get('/search', (req, res)=>{
-    const searchword = req.query.school
-    School.findOneByName(searchword).then((school)=>{
+    const searchword = req.query.school;
+    console.log(searchword);
+    School.findByName(searchword).then((school)=>{
+        console.log(school);
         if(!school){
-            res.render('searcherr', {name: searchword, campus: ""});
+            res.render('searcherr', {name: searchword, campus: "Seoul"});
         }else{
-            res.send('find successfully: ${school}'); //list -> select?
+            res.send('find successfully: ' + school); //list -> select?
     }}).catch(err=>res.status(500).send(err));
 });
 
 router.post('/create', (req, res)=>{
+    console.log(req.body);
     School.create(req.body)
         .then(newschool=>res.send(newschool))
         .catch(err=>res.status(500).send(err));
