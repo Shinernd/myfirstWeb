@@ -47,4 +47,8 @@ Node.js (express, mongoose, etc.)
     +) 맘에 안듦
 2. findOneByName은 해당 name을 가진 데이터를 하나만 찾을 수 있음
     -> findOneByName에 findOne 대신 find 사용, 이름을 findByName으로 변경
-    -> 없는 데이터 검색 시 searcherr render 실패
+    -> 없는 데이터 검색 시 searcherr render 실패 (빈 배열 boolean == true)
+=> 빈 배열.length boolean == false
+
+[20180707SAT]
+완성!

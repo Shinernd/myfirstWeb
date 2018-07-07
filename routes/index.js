@@ -17,10 +17,8 @@ router.get('/all', (req, res)=>{
 
 router.get('/search', (req, res)=>{
     const searchword = req.query.school;
-    console.log(searchword);
     School.findByName(searchword).then((school)=>{
-        console.log(school);
-        if(!school){
+        if(!school.length){
             res.render('searcherr', {name: searchword, campus: "Seoul"});
         }else{
             res.send('find successfully: ' + school); //list -> select?
@@ -28,7 +26,6 @@ router.get('/search', (req, res)=>{
 });
 
 router.post('/create', (req, res)=>{
-    console.log(req.body);
     School.create(req.body)
         .then(newschool=>res.send(newschool))
         .catch(err=>res.status(500).send(err));
