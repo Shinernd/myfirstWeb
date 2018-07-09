@@ -10,7 +10,7 @@ router.get('/all', (req, res)=>{
     School.findAll()
         .then((schools)=>{
             if(!schools.length) return res.status(404).send({err: 'School not found'});
-            res.send('load successfully: ${schools}');
+            res.send('load successfully: ' + schools);
         })
         .catch(err=>res.status(500).send(err));
 });

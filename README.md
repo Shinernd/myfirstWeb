@@ -52,3 +52,7 @@ Node.js (express, mongoose, etc.)
 
 [20180707SAT]
 완성!
+
+[20180709MON]
+1. All 버튼 수정
+=> 진짜 완성!
